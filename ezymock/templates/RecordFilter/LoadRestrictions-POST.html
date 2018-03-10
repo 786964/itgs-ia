@@ -1,0 +1,37 @@
+<div id="recordFilter1">
+    <input type="hidden" name="recordfilter_id" value=""/>
+    <input type="hidden" name="recordfilterdata_filteronclass" value="Animal"/>
+    <div class="All inputSection" style="width:600px;">
+        <div class="inputSectionTitle" title="Everything here needs to be true">All
+            <div style="width:16px;float:right;" id="addAllRecordFilter1" >
+                <span class="aButton button-add"></span>
+            </div>
+                    </div>
+        <div class="inputSectionContent" id="allFilters1"></div>
+    </div>
+    <div class="clear"><!-- --></div>
+    <div class="Any inputSection" style="width:600px;">
+        <div class="inputSectionTitle" title="Only one of these need to be true">Any
+            <div style="width:16px;float:right;" id="addAnyRecordFilter1" >
+                <span class="aButton button-add"></span>
+            </div>
+                    </div>
+        <div class="inputSectionContent" id="anyFilters1"></div>
+    </div>
+    <div class="clear"><!-- --></div>
+    <div class="None inputSection" style="width:600px;">
+        <div class="inputSectionTitle" title="Nothing that has anything true here will be included">Excluding
+            <div style="width:16px;float:right;" id="addNotRecordFilter1" >
+                <span class="aButton button-add"></span>
+            </div>
+                    </div>
+        <div class="inputSectionContent" id="notFilters1"></div>
+    </div>
+    <div class="clear"><!-- --></div>
+</div>
+{% include "update-tab-activity.html" %}
+                <script type="text/javascript">$('#addAllRecordFilter1').off('click').on('click',function(){top.$('#recordFilter1').increment();top.jaxnew('RecordFilter/AddFilter',{target:'allFilters1',how:'append',args:{tab:1,filter:{LogicGate:'All'},filterNumber:$('#recordFilter1').val(),recordClassToFilter:$('#recordFilter1 [name=recordfilterdata_filteronclass]').val()}});});</script>
+                <script type="text/javascript">$('#addAnyRecordFilter1').off('click').on('click',function(){top.$('#recordFilter1').increment();top.jaxnew('RecordFilter/AddFilter',{target:'anyFilters1',how:'append',args:{tab:1,filter:{LogicGate:'Any'},filterNumber:$('#recordFilter1').val(),recordClassToFilter:$('#recordFilter1 [name=recordfilterdata_filteronclass]').val()}});});</script>
+                <script type="text/javascript">$('#addNotRecordFilter1').off('click').on('click',function(){top.$('#recordFilter1').increment();top.jaxnew('RecordFilter/AddFilter',{target:'notFilters1',how:'append',args:{tab:1,filter:{LogicGate:'Not'},filterNumber:$('#recordFilter1').val(),recordClassToFilter:$('#recordFilter1 [name=recordfilterdata_filteronclass]').val()}});});</script>
+                <script type="text/javascript">top.$('#recordFilter1').val('0');</script>
+    

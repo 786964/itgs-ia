@@ -1,0 +1,71 @@
+{% for id, animal in search_results.items() %}
+        <li
+            class="sideListRecordMember_animal{{ id }}"
+            style="" >
+            <a href="#"
+               class="listClickOpenTab dblClickOpenTab hasQtip"
+               data-tonewtab=0
+               data-qtipdelay=1000
+               data-module="animals"
+               data-record-class="Animal"
+               data-record-id="{{ id }}"
+               data-record-clinicid="vsvhwvc"
+               title="{{ 100000 + id }} - {{ animal }}"
+               id="list{{ id }}">
+                <div                                                                class="iconWraper"                >            <div                class='iconContainer'                                                                >            <i                class='icon button-{{ animal.kind }}'                                                                ></i>
+
+            </div>
+
+            
+            <div                class='clear'                                                                ></div>
+
+            </div>
+
+                    <span class="title">{{ 100000 + id}} - {{ animal }}</span>
+            </a>
+        </li>
+{% endfor %}
+        <div class="paginate">
+            <div id="paginate-loading" style="z-index: 9999; position: absolute; width: 176px; height: 18px; font-size: 10px; padding-top: 4px; background-color:rgb(224, 224, 224); display:none;">Loading...</div>
+                <div class="leftArrows">&nbsp;                </div>
+                <div class="numbering">                    
+                    <span >({{ page_start + 1 }} - {{ page_start + search_results | length }})</span> / {{ animals | length }}</div> 
+                <div class="rightArrows">                 <a href="#" 
+                   id="leftlistlast" class="rightArrow icon icon-next2">
+                 </a>
+                <script type="text/javascript">
+                    $( '#leftlistlast' ).unbind( 'click' ).bind( 'click' ,function(){
+                                    top.refresh_jax('#theSideList',{
+                'recordClass':'Animal',
+                'search':top.$('#filter').val(),
+                'filter':'1',
+                'filterSql':'null',
+                'start':({{ animals | length }}-({{ animals | length }}%items())),
+                'totalItems':{{ animals | length }},
+                'items':items()
+            });
+                                return false;
+                    });
+                </script>
+                <a href="#"
+                 id="leftlistnext" class="rightArrow icon icon-play3">
+                </a>
+                <script type="text/javascript">
+                    sidebarPaginationResize();
+                    $( '#leftlistnext' ).unbind( 'click' ).bind( 'click' ,function(){
+                                    top.refresh_jax('#theSideList',{
+                'recordClass':'Animal',
+                'search':top.$('#filter').val(),
+                'filter':'1',
+                'filterSql':'null',
+                'start':({{ page_start }})+items(),
+                'totalItems':{{ animals | length }},
+                'items':items()
+            });
+                                return false;
+                    });
+                </script>                </div>
+                <div class="clear"><!-- --></div>
+        </div>            {% include "update-tab-activity.html" %}
+                <script type="text/javascript">var tab1Record = $('#rtab1details');$('.sideListRecordMember_'+tab1Record.attr('record')+' a').addClass('active');</script>
+    

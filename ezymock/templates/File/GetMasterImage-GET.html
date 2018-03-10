@@ -1,0 +1,31 @@
+            <img src="media/images/uploadmaster.png" id="masterimagedropzone1-25327" width="100px"/>
+            <input type="hidden" id="masterImageToUpload1-25327" type="file" name="files[]" data-url="File/UploadMasterImage" multiple>
+            <script>
+                $(document).ready(
+
+                    function () {
+                        $('#masterImageToUpload1-25327').unbind('fileuploaddone').bind('fileuploaddone', function (e, data) { top.msg('File Uploaded Successfully','3000','success');top.refresh_jax('.attachments');top.refresh_jax('#animalImage-1-25327'); })
+                        $('#masterImageToUpload1-25327').unbind('fileuploadfail').bind('fileuploadfail', function (e, data) { top.msg('Upload Failed.'+data.errorThrown,'','error'); })
+                        $('#masterImageToUpload1-25327').fileupload({
+                            dataType: 'json',
+                            formData:  {"recordClass":"Animal","recordId":"25327"},
+                            dropZone: $('#masterimagedropzone1-25327'),
+                            pasteZone: false,
+                            maxFileSize: 16000000,
+                            acceptFileTypes: /(\.|\/)(gif|jpg|jpeg|png)$/i,
+                            done: function (e, data) { /*
+                             $.each(data.result, function (index, file) {
+                             $('<p/>').text(file.name).appendTo(document.body);
+                             });
+                             */
+                            }
+                        }).off('fileuploadprocessalways').on('fileuploadprocessalways', function (e, data) {
+                            var currentFile = data.files[data.index];
+                            if (data.files.error && currentFile.error) {
+                                top.msg('The image uploader can only accept the following file types: gif, jpg, jpeg, png.','','error');
+                            }
+                        });
+                    });
+            </script>
+            {% include "update-tab-activity.html" %}
+    
