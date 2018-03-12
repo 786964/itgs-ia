@@ -1,0 +1,30 @@
+{
+  "name": "ezier-vet",
+  "version": "1.0.0",
+  "description": "Ezier Vet -- A WebExtension that provides tools for working with EzyVet",
+  "main": "main.js",
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "moment": "^2.21.0",
+    "webextension-polyfill": "^0.2.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.10",
+    "pdfjs-dist": "^2.0.426",
+    "style-loader": "^0.20.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://benburrill@bitbucket.org/benburrill/itgs-ia.git"
+  },
+  "author": "Ben Burrill",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/benburrill/itgs-ia#readme"
+}

@@ -1,0 +1,82 @@
+            <div                class='listoptions filterWrapper animals'                                id='sideBarOptions'                                >            <input                                                id='typeFilter'                type="hidden" value="0"                />
+
+            
+            <input                                                id='filterSql'                type="hidden" value=""                />
+
+            
+            <input                                                id='menuFilterSet'                type="hidden" value=""                />
+
+            
+            <input                                                id='menuFlagSet'                type="hidden" value=""                />
+
+            
+            <input                                                id='tabFilterSet'                type="hidden" value=""                />
+
+            
+            <input                                                id='externalUrl'                type="hidden" value=""                />
+
+            
+            <input                                                id='recordClass'                type="hidden" value="Animal"                />
+
+            
+            <ul                                                                                ></ul>
+
+            </div>
+
+                        <div                class='tabs listTabs'                                id='sideBarSubOptions'                                >            <input                                                id='subTypeFilter'                type="hidden" value="0"                />
+
+            
+            <ul                                                                                >            <li                class='aTabbyTab Default'                                                                >            <a                                style='padding-right:3px;'                id='ytabActive'                href="#" title="Active Patients" data-filter="1" data-tab-filter-set="null" data-identifier="Active"                >            <span                                style='padding-left:3px;font-size:10px;'                                                >Active</span>
+
+            </a>
+
+            </li>
+
+            
+            <li                class='aTabbyTab'                                                                >            <a                                style='padding-right:3px;'                id='ytabIA'                href="#" title="Inactive Patients" data-filter="99" data-tab-filter-set="null" data-identifier="IA"                >            <span                                style='padding-left:3px;font-size:10px;'                                                >I/A</span>
+
+            </a>
+
+            </li>
+
+            
+            <li                class='aTabbyTab'                                                                >            <a                                style='padding-right:3px;'                id='ytabDeceased'                href="#" title="Deceased Patients" data-filter="3" data-tab-filter-set="null" data-identifier="Deceased"                >            <span                                style='padding-left:3px;font-size:10px;'                                                >Deceased</span>
+
+            </a>
+
+            </li>
+
+            
+            <li                class='aTabbyTab'                                                                >            <a                                style='padding-right:3px;'                id='ytabAll'                href="#" title="" data-filter="2" data-tab-filter-set="null" data-identifier="All"                >            <span                                style='padding-left:3px;font-size:10px;'                                                >All</span>
+
+            </a>
+
+            </li>
+
+            </ul>
+
+            </div>
+
+                        <div                class='filterWrapper'                                id='leftpane'                                >            <div                class='filter'                                                                >            <div                class='filterField'                                                                >            <i                                                                class="icon icon-magnifying-glass grey search"                ></i>
+
+            
+            <input                                                id='filter'                autocomplete="off" maxlength="100"                />
+
+            </div>
+
+            </div>
+
+                        <div                                                id='filterlist'                data-record-class="Animal" data-module="Animal"                >            <ul                class='theSideList'                                id='theSideList'                                ></ul>
+
+            </div>
+
+            </div>
+
+                                    {% include "update-tab-activity.html" %}
+                <script type="text/javascript">$('#pagename').html('Contact Records');layout();sectionUpdateScroller();$('#leftpane').off('mousewheel').on('mousewheel',mouseScrollList);if(!jQuery.browser.mobile) { $('#leftpane .filter input').focus();}$('#sideBarSubOptions .Default a').click();
+            $('body').trigger('openRecordInTab',[{
+                    recordClass:'Animal',
+                    recordId:'',
+                    module:'animals'
+            }]);</script>
+    
